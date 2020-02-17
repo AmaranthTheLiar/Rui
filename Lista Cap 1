@@ -1,0 +1,284 @@
+#define ex1
+#include "stdio.h"
+
+#ifdef ex1
+/*1 - Escreva um programa e inicialize as variaveis do tipo char, int, short,
+    long, unsigned(char, int, short, long), float e double com seus valores
+    limites e imprima-os no video. Utilize variaveis globais para os valores
+    positivos e locais para os negativos.*/
+
+char caracter = 127;
+int inteiro = 32767;
+short curto = 32767;
+long longo = 2147483647;
+unsigned char ucaracter = 255;
+unsigned int uinteiro = 65535;
+unsigned short ucurto = 65535;
+unsigned long ulongo = 4294967295;
+float flutuante = 3.4E+38;
+double duplo = 1.7E+308;
+
+main(){
+char caracterneg = -128;
+int inteironeg = -32768;
+short curtoneg = -32768;
+long longoneg = -2147483648;
+unsigned char ucaracterneg = 0;
+unsigned int uinteironeg = 0;
+unsigned short ucurtoneg = 0;
+unsigned long ulongoneg = 0;
+float flutuanteneg = -3.4E-38;
+double duploneg = -1.7E-307;
+
+printf("\nA variavel char vai de %d a %d, e pode conter caracteres da tabelas ASCII.", caracterneg, caracter);
+printf("\nA variavel int vai de %d a %d", inteironeg, inteiro);
+printf("\nA variavel short vai de %hd a %hd", curtoneg, curto);
+printf("\nA variavel long vai de %ld a %ld", longoneg, longo);
+printf("\nA variavel unsigned char vai de %u a %u, e pode conter caracteres da tabela ASCII.", ucaracterneg, ucaracter);
+printf("\nA variavel unsigned int vai de %u a %u", uinteironeg, uinteiro);
+printf("\nA variavel unsigned short vai de %hu a %hu", ucurtoneg, ucurto);
+printf("\nA variavel unsigned long vai de %lu a %lu", ulongoneg, ulongo);
+printf("\nA variavel float vai de %g a %g", flutuanteneg, flutuante);
+printf("\nA variavel double vai de %g a %g", duploneg, duplo);
+
+}
+#endif // ex1
+
+
+
+#ifdef ex2
+/*2 - Escreva um programa que receba dados via teclado para variaveis do tipo short,
+    long, int, float, double e um char e imprima-os no video no seguinte
+    formato:
+
+             10        20        30        40        50        60
+     12345678901234567890123456789012345678901234567890123456789012345
+         short               long                int
+                   float               double              char
+*/
+main(){
+short curto;
+long longo;
+int inteiro;
+float flutuante;
+double duplo;
+char caracter;
+
+printf("Digite um valor short: ");
+scanf("%hd", &curto);
+
+printf("Digite um valor long: ");
+scanf("%ld", &longo);
+
+printf("Digite um valor int: ");
+scanf("%d", &inteiro);
+
+printf("Digite um valor float: ");
+scanf("%g", &flutuante);
+
+printf("Digite um valor double: ");
+scanf("%g", &duplo);
+
+printf("Digite um valor char: ");
+scanf("%d", &caracter);
+
+printf("\n        10        20        30        40        50        60");
+printf("\n12345678901234567890123456789012345678901234567890123456789012345");
+printf("\n    %-20hd%-20ld%-20d", curto, longo, inteiro);
+printf("\n              %-20g%-20g%-20d", flutuante, duplo, caracter);
+
+}
+#endif // ex2
+
+
+
+#ifdef ex3
+/*3 - Acrescente ao exercicio anterior mais uma linha. Receba via teclado os valores
+    sem sinal char, int e long int e escrevendo nas coluna 10, 30 e 50.
+*/
+main(){
+short curto;
+long longo;
+int inteiro;
+float flutuante;
+double duplo;
+char caracter;
+unsigned char ucaracter;
+unsigned int uinteiro;
+unsigned long ulongo;
+
+printf("Digite um valor short: ");
+scanf("%hd", &curto);
+
+printf("Digite um valor long: ");
+scanf("%ld", &longo);
+
+printf("Digite um valor int: ");
+scanf("%d", &inteiro);
+
+printf("Digite um valor float: ");
+scanf("%g", &flutuante);
+
+printf("Digite um valor double: ");
+scanf("%g", &duplo);
+
+printf("Digite um valor char: ");
+scanf("%d", &caracter);
+
+printf("Digite um valor unsigned char: ");
+scanf("%u", &ucaracter);
+
+printf("Digite um valor unsigned int: ");
+scanf("%u", &uinteiro);
+
+printf("Digite um valor unsigned long: ");
+scanf("%lu", &ulongo);
+
+printf("\n        10        20        30        40        50        60");
+printf("\n12345678901234567890123456789012345678901234567890123456789012345");
+printf("\n    %-20hd%-20ld%-20d", curto, longo, inteiro);
+printf("\n         %-20u%-20u%-20lu", ucaracter, uinteiro, ulongo);
+printf("\n              %-20g%-20g%-20d", flutuante, duplo, caracter);
+
+}
+
+#endif // ex3
+
+
+
+#ifdef ex4
+
+/*4 - Escreva um programa que permute o conteúdo de duas variáveis sem utilizar uma
+    variável auxiliar.
+*/
+
+main(){
+int a, b;
+printf("Digite um valor inteiro: ");
+scanf("%d", &a);
+printf("\nDigite outro valor inteiro: ");
+scanf("%d", &b);
+printf("\nO primeiro e %d e o segundo e %d \n", a, b);
+
+b = a+b;
+a = b-a;
+b = b-a;
+
+printf("\nDepois da permutacao, o primeiro e %d e o segundo e %d \n", a, b);
+
+}
+
+#endif // ex4
+
+
+
+#ifdef ex5
+
+/*5 - Escreva um programa que determine o menor multiplo de um numero inteiro. Este
+    multiplo deve ser maior que o limite minimo recebido. Recebe os 2 numeros via
+    teclado.
+    Ex: menor multiplo de 13 maior que 100. Resultado: 104.
+    */
+
+main(){
+int multi, minimo, menorm, cont=1;
+
+do{
+    printf("Digite um numero inteiro (multiplicador): ");
+    scanf("%d", &multi);
+        if(multi <= 0)
+            printf("\nO numero deve ser maior do que zero!\n");
+}while(multi <= 0);
+
+
+do{
+    printf("Digite um segundo numero inteiro (limite minimo): ");
+    scanf("%d", &minimo);
+        if(minimo <= 0)
+            printf("\nO numero deve ser maior do que zero!v2\n");
+}while(minimo <= 0);
+
+do{
+    menorm = multi*cont;
+    cont++;
+
+}while(menorm <= minimo);
+
+printf("O menor multiplo e %d", menorm);
+
+}
+
+
+#endif // ex5
+
+
+
+#ifdef ex6
+
+/*6 - Escreva um programa que receba via teclado um tempo em segundos e converta um
+    para horas, minutos e segundos.
+    Ex.: recebe 3850 segundos que converte para 1h 4min 10s.
+    3600s/h
+    60s/m
+*/
+
+main(){
+int input, horas, minutos, segundos;
+do{
+    printf("Digite uma quantidade positiva de segundos: ");
+    scanf("%d", &input);
+        if(input <= 0)
+            printf("\nO valor deve ser maior do que zero!\n");
+
+
+}while(input <= 0);
+
+horas = input/3600;
+    input = input-horas*3600;
+minutos = input/60;
+    input = input-minutos*60;
+segundos = input;
+
+printf("\nO tempo total e %d \bh %d \bm %d \bs \n", horas, minutos, segundos);
+
+}
+
+#endif // ex6
+
+
+
+#ifdef ex7
+
+/*7 - Faça um programa para ler um numero inteiro, positivo de tres digitos, e gerar
+    outro número formado pelos dígitos invertidos do número lido.
+    Ex:   NúmeroLido = 123
+        NúmeroGerado = 321
+*/
+
+main(){
+int input, lido, centena, dezena, unidade, invertido;
+
+do{
+    printf("\nDigite um numero inteiro de tres digitos (de 100 a 999): ");
+    scanf("%d", &input);
+        if(input > 999 || input <100)
+            printf("\nO valor deve ser maior do que zero e possuir tres digitos (de 100 a 999)!\n");
+}while(input > 999 || input < 100);
+
+lido = input;
+
+centena = input/100;
+    input = input%100; //a variavel se torna o resto dela mesma dividida por 100
+dezena = input/10;
+    input = input%10;
+unidade = input;
+
+invertido = (unidade*100)+(dezena*10)+(centena);
+
+
+printf("\nO valor lido e: %d \nO valor invertido e: %d \n", lido, invertido);
+
+
+}
+
+#endif // 7
